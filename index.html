@@ -8,7 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins,sans-serif;
+}
 
 body{
   background:#000;
@@ -16,128 +21,131 @@ body{
   overflow:hidden;
 }
 
-/* Animated Stadium */
+/* 🎥 Cricket GIF Background */
 .bg{
   position:fixed;
   inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
-    url('https://i.imgur.com/yI4KQ9J.jpg');
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url('https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif');
   background-size:cover;
-  animation:move 22s linear infinite;
+  background-position:center;
   z-index:-1;
 }
-@keyframes move{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
 
+/* Center Card */
 .wrap{
   height:100vh;
   display:flex;
-  justify-content:center;
   align-items:center;
-  padding:15px;
+  justify-content:center;
+  padding:16px;
 }
 
 .card{
-  max-width:420px;
   width:100%;
+  max-width:420px;
   background:rgba(10,15,30,.95);
   border-radius:20px;
   padding:26px;
   text-align:center;
   color:#fff;
   box-shadow:0 0 40px rgba(0,255,255,.3);
-  animation:pop .8s ease;
-}
-@keyframes pop{
-  from{transform:scale(.9);opacity:0}
-  to{transform:scale(1);opacity:1}
 }
 
+/* Header */
 .logo{
   font-size:26px;
   font-weight:700;
   color:#00f7ff;
 }
 
-.mode{
-  margin:10px 0;
+.tag{
   font-size:13px;
-  color:#9ff;
+  margin-top:6px;
+  color:#c7f9ff;
 }
 
-/* MATCH BAR */
-.match{
+/* Cricbuzz-style Score Card */
+.score-box{
   background:#020617;
-  padding:10px;
-  border-radius:12px;
-  margin:16px 0;
+  margin:18px 0;
+  padding:14px;
+  border-radius:14px;
+  box-shadow:inset 0 0 10px rgba(0,255,255,.25);
+}
+
+.live{
+  color:#22c55e;
   font-size:13px;
-  box-shadow:inset 0 0 10px rgba(0,255,255,.2);
+  font-weight:600;
+  animation:blink 1.4s infinite;
 }
-.blink{
-  color:#00ff99;
-  animation:blink 1.3s infinite;
-}
+
 @keyframes blink{
   0%,100%{opacity:1}
   50%{opacity:.4}
 }
 
-/* Members */
-.members{
-  margin:14px 0;
-  font-size:14px;
-  color:#d1faff;
+.score{
+  margin-top:6px;
+  font-size:18px;
+  font-weight:700;
 }
 
-/* CTA */
-.join{
+.over{
+  font-size:13px;
+  opacity:.9;
+}
+
+/* Buttons */
+.btn{
   display:block;
   text-decoration:none;
   margin-top:14px;
   padding:14px;
-  background:linear-gradient(135deg,#00f7ff,#00b7ff);
-  color:#000;
-  font-weight:700;
   border-radius:14px;
-  box-shadow:0 0 25px rgba(0,255,255,.7);
-  animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-  0%{box-shadow:0 0 12px rgba(0,255,255,.5)}
-  50%{box-shadow:0 0 30px rgba(0,255,255,.9)}
-  100%{box-shadow:0 0 12px rgba(0,255,255,.5)}
+  font-weight:700;
+  color:#000;
 }
 
+.join{
+  background:linear-gradient(135deg,#00f7ff,#00b7ff);
+  box-shadow:0 0 22px rgba(0,255,255,.7);
+}
+
+.score-btn{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  box-shadow:0 0 22px rgba(34,197,94,.6);
+}
+
+/* Note */
 .note{
   font-size:12px;
-  opacity:.85;
   margin-top:10px;
+  opacity:.85;
 }
 
-/* Fake join notification */
+/* Fake Join Notification */
 .fake{
   position:fixed;
-  bottom:-80px;
+  bottom:-90px;
   left:50%;
   transform:translateX(-50%);
   background:#020617;
   padding:10px 18px;
   border-radius:12px;
-  color:#fff;
   font-size:13px;
+  color:#fff;
   box-shadow:0 0 15px rgba(0,255,255,.4);
   animation:notify 6s infinite;
 }
+
 @keyframes notify{
-  0%{bottom:-80px;opacity:0}
+  0%{bottom:-90px;opacity:0}
   20%{bottom:25px;opacity:1}
   60%{bottom:25px;opacity:1}
-  100%{bottom:-80px;opacity:0}
+  100%{bottom:-90px;opacity:0}
 }
 </style>
 </head>
@@ -150,20 +158,26 @@ body{
   <div class="card">
 
     <div class="logo">🏏 CRIC FUTURE LIFE</div>
-    <div class="mode">IPL • World Cup • Fun Cricket</div>
+    <div class="tag">Cricket Insights • Fun • Entertainment</div>
 
-    <div class="match">
-      🔴 <span class="blink">LIVE MATCH FEEL</span><br>
-      IND 🆚 AUS | Match Discussion On
+    <!-- Live Score Feel -->
+    <div class="score-box">
+      <div class="live">🔴 LIVE SCORE UPDATE</div>
+      <div class="score">145 / 3</div>
+      <div class="over">Overs: 17.2</div>
     </div>
 
-    <!-- 👇 MEMBERS COUNT YAHAN CHANGE KARO -->
-    <div class="members">
-      👥 12,480+ Cricket Lovers Joined
-    </div>
+    <!-- Cricbuzz Real Link -->
+    <a href="https://www.cricbuzz.com/cricket-match/live-scores"
+       target="_blank"
+       class="btn score-btn">
+      📊 View Real Live Score (Cricbuzz)
+    </a>
 
-    <a class="join" href="https://t.me/+T8XbCLCvPg9lYTRl">
-      JOIN TELEGRAM CHANNEL
+    <!-- Telegram Join -->
+    <a href="https://t.me/+T8XbCLCvPg9lYTRl"
+       class="btn join">
+      👉 JOIN TELEGRAM CHANNEL
     </a>
 
     <div class="note">
@@ -173,8 +187,9 @@ body{
   </div>
 </div>
 
+<!-- Fake Join Activity -->
 <div class="fake">
-  ● Someone joined CRIC FUTURE LIFE
+  ● Join Activity Notice • New member joined
 </div>
 
 </body>
