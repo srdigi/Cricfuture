@@ -8,143 +8,70 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Poppins,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#000;height:100vh;overflow:hidden}
 
-body{
-  background:#000;
-  height:100vh;
-  overflow:hidden;
-}
-
-/* 🎥 Cricket GIF Background */
+/* 🏏 Cricket Playing GIF Background */
 .bg{
-  position:fixed;
-  inset:0;
+  position:fixed; inset:0;
   background:
     linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-    url('https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif');
-  background-size:cover;
-  background-position:center;
-  z-index:-1;
+    url('https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif');
+  background-size:cover; background-position:center;
+  z-index:-1; transition:.8s;
 }
 
 /* Center Card */
-.wrap{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:16px;
-}
-
+.wrap{height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
 .card{
-  width:100%;
-  max-width:420px;
+  width:100%;max-width:420px;
   background:rgba(10,15,30,.95);
-  border-radius:20px;
-  padding:26px;
-  text-align:center;
-  color:#fff;
-  box-shadow:0 0 40px rgba(0,255,255,.3);
+  border-radius:22px;padding:26px;text-align:center;color:#fff;
+  box-shadow:0 0 45px rgba(0,255,255,.35)
 }
 
 /* Header */
-.logo{
-  font-size:26px;
-  font-weight:700;
-  color:#00f7ff;
-}
+.logo{font-size:26px;font-weight:700;color:#00f7ff}
+.tag{font-size:13px;margin-top:6px;color:#c7f9ff}
 
-.tag{
-  font-size:13px;
-  margin-top:6px;
-  color:#c7f9ff;
-}
-
-/* Cricbuzz-style Score Card */
+/* Score Card */
 .score-box{
-  background:#020617;
-  margin:18px 0;
-  padding:14px;
-  border-radius:14px;
-  box-shadow:inset 0 0 10px rgba(0,255,255,.25);
+  background:#020617;margin:18px 0;padding:14px;border-radius:14px;
+  box-shadow:inset 0 0 12px rgba(0,255,255,.3)
 }
-
-.live{
-  color:#22c55e;
-  font-size:13px;
-  font-weight:600;
-  animation:blink 1.4s infinite;
-}
-
-@keyframes blink{
-  0%,100%{opacity:1}
-  50%{opacity:.4}
-}
-
-.score{
-  margin-top:6px;
-  font-size:18px;
-  font-weight:700;
-}
-
-.over{
-  font-size:13px;
-  opacity:.9;
-}
+.live{color:#22c55e;font-size:13px;font-weight:600;animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.score{margin-top:6px;font-size:19px;font-weight:700}
+.over{font-size:13px;opacity:.9}
 
 /* Buttons */
 .btn{
-  display:block;
-  text-decoration:none;
-  margin-top:14px;
-  padding:14px;
-  border-radius:14px;
-  font-weight:700;
-  color:#000;
+  display:block;text-decoration:none;margin-top:14px;
+  padding:15px;border-radius:15px;font-weight:700;color:#000
 }
-
+.live-btn{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  box-shadow:0 0 25px rgba(34,197,94,.7)
+}
 .join{
   background:linear-gradient(135deg,#00f7ff,#00b7ff);
-  box-shadow:0 0 22px rgba(0,255,255,.7);
+  box-shadow:0 0 25px rgba(0,255,255,.8)
 }
 
-.score-btn{
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  box-shadow:0 0 22px rgba(34,197,94,.6);
-}
+.note{font-size:12px;margin-top:10px;opacity:.85}
 
-/* Note */
-.note{
-  font-size:12px;
-  margin-top:10px;
-  opacity:.85;
-}
-
-/* Fake Join Notification */
+/* Join Notification */
 .fake{
-  position:fixed;
-  bottom:-90px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#020617;
-  padding:10px 18px;
-  border-radius:12px;
-  font-size:13px;
-  color:#fff;
-  box-shadow:0 0 15px rgba(0,255,255,.4);
-  animation:notify 6s infinite;
+  position:fixed;bottom:-90px;left:50%;transform:translateX(-50%);
+  background:#020617;padding:10px 18px;border-radius:12px;
+  font-size:13px;color:#fff;
+  box-shadow:0 0 18px rgba(0,255,255,.5);
+  animation:notify 2s infinite
 }
-
 @keyframes notify{
   0%{bottom:-90px;opacity:0}
-  20%{bottom:25px;opacity:1}
-  60%{bottom:25px;opacity:1}
+  25%{bottom:25px;opacity:1}
+  75%{bottom:25px;opacity:1}
   100%{bottom:-90px;opacity:0}
 }
 </style>
@@ -152,7 +79,7 @@ body{
 
 <body>
 
-<div class="bg"></div>
+<div class="bg" id="bg"></div>
 
 <div class="wrap">
   <div class="card">
@@ -160,37 +87,65 @@ body{
     <div class="logo">🏏 CRIC FUTURE LIFE</div>
     <div class="tag">Cricket Insights • Fun • Entertainment</div>
 
-    <!-- Live Score Feel -->
     <div class="score-box">
       <div class="live">🔴 LIVE SCORE UPDATE</div>
-      <div class="score">145 / 3</div>
-      <div class="over">Overs: 17.2</div>
+      <div class="score" id="score">148 / 4</div>
+      <div class="over" id="over">Overs: 17.5</div>
     </div>
 
-    <!-- Cricbuzz Real Link -->
-    <a href="https://www.cricbuzz.com/cricket-match/live-scores"
-       target="_blank"
-       class="btn score-btn">
-      📊 View Real Live Score (Cricbuzz)
+    <!-- LIVE SCORE → TELEGRAM -->
+    <a href="https://t.me/+T8XbCLCvPg9lYTRl" class="btn live-btn">
+      📊 LIVE SCORE
     </a>
 
-    <!-- Telegram Join -->
-    <a href="https://t.me/+T8XbCLCvPg9lYTRl"
-       class="btn join">
+    <!-- JOIN -->
+    <a href="https://t.me/+T8XbCLCvPg9lYTRl" class="btn join">
       👉 JOIN TELEGRAM CHANNEL
     </a>
 
-    <div class="note">
-      This channel is for <b>Fun & Entertainment</b> only
-    </div>
+    <div class="note">This channel is for <b>Fun & Entertainment</b> only</div>
 
   </div>
 </div>
 
-<!-- Fake Join Activity -->
-<div class="fake">
-  ● Join Activity Notice • New member joined
-</div>
+<!-- Join Activity -->
+<div class="fake" id="joinNote">● Ayus joined CRIC FUTURE LIFE</div>
+
+<script>
+/* 🔄 Visual Live Score */
+let runs=148,wickets=4,overs=17.5;
+setInterval(()=>{
+  runs+=Math.floor(Math.random()*3);
+  if(Math.random()>0.88 && wickets<9) wickets++;
+  overs+=0.1;
+  if(overs.toFixed(1).endsWith(".6")) overs=Math.floor(overs)+1;
+  document.getElementById("score").innerText=runs+" / "+wickets;
+  document.getElementById("over").innerText="Overs: "+overs.toFixed(1);
+  if(navigator.vibrate) navigator.vibrate(20); // mobile haptic
+},2500);
+
+/* 👥 Join Names */
+const names=["Ayus","Sachi","Samir","Rohit","Aman","Kunal","Vikas","Rahul","Ankit","Saurabh"];
+let i=0;
+setInterval(()=>{
+  document.getElementById("joinNote").innerText=
+   "● "+names[i]+" joined CRIC FUTURE LIFE";
+  i=(i+1)%names.length;
+},1000);
+
+/* 🎥 Cricket GIF Rotation */
+const gifs=[
+ "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+ "https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.gif",
+ "https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif"
+];
+let g=0;
+setInterval(()=>{
+  document.getElementById("bg").style.backgroundImage=
+   "linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),url('"+gifs[g]+"')";
+  g=(g+1)%gifs.length;
+},8000);
+</script>
 
 </body>
 </html>
