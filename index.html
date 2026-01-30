@@ -11,7 +11,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 body{background:#000;height:100vh;overflow:hidden}
 
-/* 🌙🏏 NIGHT STADIUM + LIGHTS + RAIN FEEL */
+/* 🌙🏏 NIGHT STADIUM (RAIN OFF) */
 .bg{
   position:fixed;
   inset:0;
@@ -20,45 +20,23 @@ body{background:#000;height:100vh;overflow:hidden}
     url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1600&q=80');
   background-size:cover;
   background-position:center;
-  z-index:-2;
-  filter:blur(1.5px);
+  z-index:-1;
 }
 
-/* Stadium Lights Glow */
+/* Stadium Lights Glow (subtle) */
 .bg::after{
   content:"";
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at top left, rgba(0,255,255,.25), transparent 40%),
-    radial-gradient(circle at top right, rgba(0,255,255,.25), transparent 40%),
-    radial-gradient(circle at center, rgba(255,255,255,.08), transparent 60%);
+    radial-gradient(circle at top left, rgba(0,255,255,.22), transparent 42%),
+    radial-gradient(circle at top right, rgba(0,255,255,.22), transparent 42%),
+    radial-gradient(circle at center, rgba(255,255,255,.06), transparent 60%);
   animation:glow 4s ease-in-out infinite;
 }
 @keyframes glow{
   0%,100%{opacity:.7}
   50%{opacity:1}
-}
-
-/* Light Rain Effect */
-.rain{
-  position:fixed;
-  inset:0;
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,.15),
-      rgba(255,255,255,.15) 1px,
-      transparent 1px,
-      transparent 6px
-    );
-  animation:rain 0.4s linear infinite;
-  pointer-events:none;
-  z-index:-1;
-}
-@keyframes rain{
-  from{background-position:0 0}
-  to{background-position:0 100%}
 }
 
 /* CENTER CARD */
@@ -121,12 +99,8 @@ body{background:#000;height:100vh;overflow:hidden}
   font-weight:700;
   color:#000;
 }
-.live-btn{
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-}
-.join{
-  background:linear-gradient(135deg,#00f7ff,#00b7ff);
-}
+.live-btn{background:linear-gradient(135deg,#22c55e,#16a34a)}
+.join{background:linear-gradient(135deg,#00f7ff,#00b7ff)}
 
 /* JOIN NOTIFICATION */
 .fake{
@@ -154,7 +128,6 @@ body{background:#000;height:100vh;overflow:hidden}
 <body>
 
 <div class="bg"></div>
-<div class="rain"></div>
 
 <div class="wrap">
   <div class="card">
