@@ -11,13 +11,13 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 body{background:#000;height:100vh;overflow:hidden}
 
-/* 🏏 ONLY CRICKET PLAYING GIF BACKGROUND */
+/* 🏏 ONLY CRICKET PLAYING GIF BACKGROUND (AS REQUESTED) */
 .bg{
   position:fixed;
   inset:0;
   background:
     linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-    url('https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif');
+    url('https://tenor.com/c7PWown1xf2.gif');
   background-size:cover;
   background-position:center;
   z-index:-1;
@@ -55,7 +55,6 @@ body{background:#000;height:100vh;overflow:hidden}
   font-weight:700;
   color:#00f7ff;
 }
-
 .tag{
   font-size:13px;
   margin-top:6px;
@@ -70,23 +69,9 @@ body{background:#000;height:100vh;overflow:hidden}
   border-radius:14px;
   box-shadow:inset 0 0 10px rgba(0,255,255,.25);
 }
-
-.live{
-  color:#22c55e;
-  font-size:13px;
-  font-weight:600;
-}
-
-.score{
-  margin-top:6px;
-  font-size:18px;
-  font-weight:700;
-}
-
-.over{
-  font-size:13px;
-  opacity:.9;
-}
+.live{color:#22c55e;font-size:13px;font-weight:600}
+.score{margin-top:6px;font-size:18px;font-weight:700}
+.over{font-size:13px;opacity:.9}
 
 /* BUTTONS */
 .btn{
@@ -98,14 +83,8 @@ body{background:#000;height:100vh;overflow:hidden}
   font-weight:700;
   color:#000;
 }
-
-.live-btn{
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-}
-
-.join{
-  background:linear-gradient(135deg,#00f7ff,#00b7ff);
-}
+.live-btn{background:linear-gradient(135deg,#22c55e,#16a34a)}
+.join{background:linear-gradient(135deg,#00f7ff,#00b7ff)}
 
 /* JOIN NOTIFICATION */
 .fake{
@@ -120,7 +99,6 @@ body{background:#000;height:100vh;overflow:hidden}
   color:#fff;
   animation:notify 2s infinite;
 }
-
 @keyframes notify{
   0%{bottom:-80px;opacity:0}
   25%{bottom:25px;opacity:1}
@@ -137,7 +115,7 @@ body{background:#000;height:100vh;overflow:hidden}
 <div class="wrap">
   <div class="card">
 
-    <!-- LOGO -->
+    <!-- LOGO (same folder me logo.png rakho) -->
     <div class="logo">
       <img src="logo.png" alt="CRIC FUTURE LIFE Logo">
     </div>
@@ -151,12 +129,10 @@ body{background:#000;height:100vh;overflow:hidden}
       <div class="over" id="over">Overs: 16.4</div>
     </div>
 
-    <!-- LIVE SCORE -->
     <a href="https://t.me/+T8XbCLCvPg9lYTRl" class="btn live-btn">
       📊 LIVE SCORE
     </a>
 
-    <!-- JOIN -->
     <a href="https://t.me/+T8XbCLCvPg9lYTRl" class="btn join">
       👉 JOIN TELEGRAM CHANNEL
     </a>
@@ -167,7 +143,7 @@ body{background:#000;height:100vh;overflow:hidden}
 <div class="fake" id="joinNote">● Ayus joined CRIC FUTURE LIFE</div>
 
 <script>
-/* SCORE ANIMATION (visual only) */
+/* Visual score (safe) */
 let runs=142,wickets=3,overs=16.4;
 setInterval(()=>{
   runs+=Math.floor(Math.random()*3);
@@ -178,7 +154,7 @@ setInterval(()=>{
   document.getElementById("over").innerText="Overs: "+overs.toFixed(1);
 },2500);
 
-/* JOIN NAMES */
+/* Join names (1 sec) */
 const names=["Ayus","Sachi","Samir","Rohit","Aman","Kunal","Vikas","Rahul","Ankit","Saurabh"];
 let i=0;
 setInterval(()=>{
