@@ -11,89 +11,147 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 body{background:#000;height:100vh;overflow:hidden}
 
-/* 🏏 Cricket Playing GIF Background */
+/* 🏏 ONLY CRICKET PLAYING GIF BACKGROUND */
 .bg{
-  position:fixed; inset:0;
+  position:fixed;
+  inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
     url('https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif');
-  background-size:cover; background-position:center;
-  z-index:-1; transition:.8s;
+  background-size:cover;
+  background-position:center;
+  z-index:-1;
 }
 
-/* Center Card */
-.wrap{height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+/* CENTER CARD */
+.wrap{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+
 .card{
-  width:100%;max-width:420px;
+  width:100%;
+  max-width:420px;
   background:rgba(10,15,30,.95);
-  border-radius:22px;padding:26px;text-align:center;color:#fff;
-  box-shadow:0 0 45px rgba(0,255,255,.35)
+  border-radius:22px;
+  padding:26px;
+  text-align:center;
+  color:#fff;
+  box-shadow:0 0 35px rgba(0,255,255,.25);
 }
 
-/* Header */
-.logo{font-size:26px;font-weight:700;color:#00f7ff}
-.tag{font-size:13px;margin-top:6px;color:#c7f9ff}
+/* LOGO */
+.logo img{
+  width:120px;
+  margin-bottom:10px;
+}
 
-/* Score Card */
+/* TEXT */
+.title{
+  font-size:24px;
+  font-weight:700;
+  color:#00f7ff;
+}
+
+.tag{
+  font-size:13px;
+  margin-top:6px;
+  color:#c7f9ff;
+}
+
+/* SCORE CARD */
 .score-box{
-  background:#020617;margin:18px 0;padding:14px;border-radius:14px;
-  box-shadow:inset 0 0 12px rgba(0,255,255,.3)
+  background:#020617;
+  margin:18px 0;
+  padding:14px;
+  border-radius:14px;
+  box-shadow:inset 0 0 10px rgba(0,255,255,.25);
 }
-.live{color:#22c55e;font-size:13px;font-weight:600;animation:blink 1.4s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
-.score{margin-top:6px;font-size:19px;font-weight:700}
-.over{font-size:13px;opacity:.9}
 
-/* Buttons */
-.btn{
-  display:block;text-decoration:none;margin-top:14px;
-  padding:15px;border-radius:15px;font-weight:700;color:#000
+.live{
+  color:#22c55e;
+  font-size:13px;
+  font-weight:600;
 }
+
+.score{
+  margin-top:6px;
+  font-size:18px;
+  font-weight:700;
+}
+
+.over{
+  font-size:13px;
+  opacity:.9;
+}
+
+/* BUTTONS */
+.btn{
+  display:block;
+  text-decoration:none;
+  margin-top:14px;
+  padding:14px;
+  border-radius:14px;
+  font-weight:700;
+  color:#000;
+}
+
 .live-btn{
   background:linear-gradient(135deg,#22c55e,#16a34a);
-  box-shadow:0 0 25px rgba(34,197,94,.7)
 }
+
 .join{
   background:linear-gradient(135deg,#00f7ff,#00b7ff);
-  box-shadow:0 0 25px rgba(0,255,255,.8)
 }
 
-.note{font-size:12px;margin-top:10px;opacity:.85}
-
-/* Join Notification */
+/* JOIN NOTIFICATION */
 .fake{
-  position:fixed;bottom:-90px;left:50%;transform:translateX(-50%);
-  background:#020617;padding:10px 18px;border-radius:12px;
-  font-size:13px;color:#fff;
-  box-shadow:0 0 18px rgba(0,255,255,.5);
-  animation:notify 2s infinite
+  position:fixed;
+  bottom:-80px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#020617;
+  padding:10px 18px;
+  border-radius:12px;
+  font-size:13px;
+  color:#fff;
+  animation:notify 2s infinite;
 }
+
 @keyframes notify{
-  0%{bottom:-90px;opacity:0}
+  0%{bottom:-80px;opacity:0}
   25%{bottom:25px;opacity:1}
   75%{bottom:25px;opacity:1}
-  100%{bottom:-90px;opacity:0}
+  100%{bottom:-80px;opacity:0}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg" id="bg"></div>
+<div class="bg"></div>
 
 <div class="wrap">
   <div class="card">
 
-    <div class="logo">🏏 CRIC FUTURE LIFE</div>
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="logo.png" alt="CRIC FUTURE LIFE Logo">
+    </div>
+
+    <div class="title">CRIC FUTURE LIFE</div>
     <div class="tag">Cricket Insights • Fun • Entertainment</div>
 
     <div class="score-box">
       <div class="live">🔴 LIVE SCORE UPDATE</div>
-      <div class="score" id="score">148 / 4</div>
-      <div class="over" id="over">Overs: 17.5</div>
+      <div class="score" id="score">142 / 3</div>
+      <div class="over" id="over">Overs: 16.4</div>
     </div>
 
-    <!-- LIVE SCORE → TELEGRAM -->
+    <!-- LIVE SCORE -->
     <a href="https://t.me/+T8XbCLCvPg9lYTRl" class="btn live-btn">
       📊 LIVE SCORE
     </a>
@@ -103,17 +161,14 @@ body{background:#000;height:100vh;overflow:hidden}
       👉 JOIN TELEGRAM CHANNEL
     </a>
 
-    <div class="note">This channel is for <b>Fun & Entertainment</b> only</div>
-
   </div>
 </div>
 
-<!-- Join Activity -->
 <div class="fake" id="joinNote">● Ayus joined CRIC FUTURE LIFE</div>
 
 <script>
-/* 🔄 Visual Live Score */
-let runs=148,wickets=4,overs=17.5;
+/* SCORE ANIMATION (visual only) */
+let runs=142,wickets=3,overs=16.4;
 setInterval(()=>{
   runs+=Math.floor(Math.random()*3);
   if(Math.random()>0.88 && wickets<9) wickets++;
@@ -121,30 +176,16 @@ setInterval(()=>{
   if(overs.toFixed(1).endsWith(".6")) overs=Math.floor(overs)+1;
   document.getElementById("score").innerText=runs+" / "+wickets;
   document.getElementById("over").innerText="Overs: "+overs.toFixed(1);
-  if(navigator.vibrate) navigator.vibrate(20); // mobile haptic
 },2500);
 
-/* 👥 Join Names */
+/* JOIN NAMES */
 const names=["Ayus","Sachi","Samir","Rohit","Aman","Kunal","Vikas","Rahul","Ankit","Saurabh"];
 let i=0;
 setInterval(()=>{
   document.getElementById("joinNote").innerText=
-   "● "+names[i]+" joined CRIC FUTURE LIFE";
+    "● "+names[i]+" joined CRIC FUTURE LIFE";
   i=(i+1)%names.length;
 },1000);
-
-/* 🎥 Cricket GIF Rotation */
-const gifs=[
- "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
- "https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.gif",
- "https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif"
-];
-let g=0;
-setInterval(()=>{
-  document.getElementById("bg").style.backgroundImage=
-   "linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),url('"+gifs[g]+"')";
-  g=(g+1)%gifs.length;
-},8000);
 </script>
 
 </body>
