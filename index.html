@@ -11,13 +11,13 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 body{background:#000;height:100vh;overflow:hidden}
 
-/* 🏏 ONLY CRICKET PLAYING GIF BACKGROUND (AS REQUESTED) */
+/* 🏏 HD CRICKET PITCH BACKGROUND */
 .bg{
   position:fixed;
   inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-    url('https://tenor.com/c7PWown1xf2.gif');
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url('https://images.unsplash.com/photo-1600370070465-8b8b2f0c2c1a?auto=format&fit=crop&w=1600&q=80');
   background-size:cover;
   background-position:center;
   z-index:-1;
@@ -115,7 +115,7 @@ body{background:#000;height:100vh;overflow:hidden}
 <div class="wrap">
   <div class="card">
 
-    <!-- LOGO (same folder me logo.png rakho) -->
+    <!-- LOGO -->
     <div class="logo">
       <img src="logo.png" alt="CRIC FUTURE LIFE Logo">
     </div>
@@ -143,7 +143,7 @@ body{background:#000;height:100vh;overflow:hidden}
 <div class="fake" id="joinNote">● Ayus joined CRIC FUTURE LIFE</div>
 
 <script>
-/* Visual score (safe) */
+/* Visual score animation */
 let runs=142,wickets=3,overs=16.4;
 setInterval(()=>{
   runs+=Math.floor(Math.random()*3);
@@ -154,7 +154,7 @@ setInterval(()=>{
   document.getElementById("over").innerText="Overs: "+overs.toFixed(1);
 },2500);
 
-/* Join names (1 sec) */
+/* Join names */
 const names=["Ayus","Sachi","Samir","Rohit","Aman","Kunal","Vikas","Rahul","Ankit","Saurabh"];
 let i=0;
 setInterval(()=>{
